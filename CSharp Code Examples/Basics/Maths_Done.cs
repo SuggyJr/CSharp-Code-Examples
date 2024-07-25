@@ -8,17 +8,26 @@ namespace CSharp_Code_Examples
 {
     class Maths_Done
     {
-        //Authors: Alfie Sugden (26584784)
-        //simple calculator
+        // Authors: Alfie Sugden (26584784)
+        // Simple calculator
+
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                Maths_Done.run();
+            }
+        }
+
         public static void run()
         {
-            Console.WriteLine("Piack a number: ");
+            Console.WriteLine("Pick a number: ");
             double number1 = Convert.ToDouble(Console.ReadLine());
 
-            Console.WriteLine("Piack one of the following operators, + , - , * , / :");
+            Console.WriteLine("Pick one of the following operators: +, -, *, / :");
             char op = Console.ReadLine()[0];
 
-            Console.WriteLine("Piack another number: ");
+            Console.WriteLine("Pick another number: ");
             double number2 = Convert.ToDouble(Console.ReadLine());
 
             double result = 0;
@@ -29,25 +38,29 @@ namespace CSharp_Code_Examples
             switch (op)
             {
                 case '+':
-                result = number1 + number2;
-                break;
+                    result = number1 + number2;
+                    break;
                 case '-':
-                result = number1 - number2;
-                break;
+                    result = number1 - number2;
+                    break;
                 case '*':
-                result = number1 * number2;
-                break;
+                    result = number1 * number2;
+                    break;
                 case '/':
-                if(number2 !=0)
-                result = number1 / number2;
-                else
-                Console.WriteLine("Cannot divide by zero!");
-                break;
+                    if (number2 != 0)
+                        result = number1 / number2;
+                    else
+                    {
+                        Console.WriteLine("Cannot divide by zero!");
+                        return;
+                    }
+                    break;
                 default:
-                break;
+                    Console.WriteLine("Invalid operator!");
+                    return;
             }
-            
-            Console.WriteLine(n1, op, n2, " = ", result);
+
+            Console.WriteLine($"{n1} {op} {n2} = {result}");
         }
     }
 }
